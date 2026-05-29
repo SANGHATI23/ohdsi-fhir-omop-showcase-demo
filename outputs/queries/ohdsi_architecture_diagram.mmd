@@ -1,0 +1,21 @@
+flowchart LR
+    A[Synthea Synthetic Patients] --> B[FHIR Bulk NDJSON Files]
+
+    B --> C[pyOMOP Import]
+
+    C --> D[SQLite OMOP CDM Database]
+
+    D --> E1[Person Analytics]
+    D --> E2[Demographic Summary]
+    D --> E3[Condition Prevalence]
+    D --> E4[Drug Exposure Summary]
+
+    E1 --> F[Showcase Summary Report]
+    E2 --> F
+    E3 --> F
+    E4 --> F
+
+    D --> G[Lightweight NL-to-SQL Demo]
+    G --> H[Generated SQL]
+    H --> I[Executed OMOP Query]
+    I --> J[Result Table]

@@ -1,0 +1,28 @@
+# Python environment
+.venv/
+__pycache__/
+*.pyc
+
+# Generated FHIR data
+data/fhir_input/
+
+# Generated OMOP database
+data/omop_db/
+*.sqlite
+*.db
+
+# Athena vocabulary files can be very large
+data/vocabulary/
+
+# Synthea build files
+synthea/build/
+synthea/.gradle/
+
+# macOS files
+.DS_Store
+
+# Logs
+*.log
+
+# Do not upload cloned Synthea source repository
+synthea/
