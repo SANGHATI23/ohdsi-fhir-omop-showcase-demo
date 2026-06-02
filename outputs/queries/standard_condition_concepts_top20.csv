@@ -1,0 +1,21 @@
+concept_name,domain_id,vocabulary_id,condition_concept_id,condition_record_count,unique_patients
+Medication review due,Observation,SNOMED,4199788,219,27
+Full-time employment,Observation,SNOMED,4053118,79,21
+Stress,Observation,SNOMED,4251306,73,20
+Gingivitis,Condition,SNOMED,4281516,72,19
+Part-time employment,Observation,SNOMED,4059634,43,17
+Viral sinusitis,Condition,SNOMED,40481087,26,16
+Body mass index 30+ - obesity,Observation,SNOMED,4060985,16,16
+Not in labor force,Observation,SNOMED,42538208,27,14
+Gingival disease,Condition,SNOMED,4090111,22,14
+Limited social contact,Observation,SNOMED,4172829,27,13
+Received higher education,Observation,SNOMED,4076230,13,13
+Anemia,Condition,SNOMED,439777,12,12
+Social isolation,Observation,SNOMED,4309238,29,11
+Victim of intimate partner abuse,Observation,SNOMED,45768458,15,9
+Primary dental caries,Condition,SNOMED,40274283,14,9
+Acute bronchitis,Condition,SNOMED,260139,9,9
+Prediabetes,Condition,SNOMED,37018196,9,9
+Acute viral pharyngitis,Condition,SNOMED,4112343,13,8
+Risk activity involvement,Observation,SNOMED,4059650,9,8
+Housing problem,Observation,SNOMED,4022661,8,8

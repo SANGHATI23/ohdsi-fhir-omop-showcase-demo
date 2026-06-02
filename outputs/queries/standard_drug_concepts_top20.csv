@@ -1,0 +1,21 @@
+concept_name,domain_id,vocabulary_id,drug_concept_id,drug_record_count,unique_patients
+Hospital -Laboratory Services provided to non-pt @ Non-Payment / Zero,Visit,UB04 Typ bill,32336,220,27
+Medicare Point of Service (POS),Payer,SOPT,284,18,18
+acetaminophen 325 MG Oral Tablet,Drug,RxNorm,1127433,13,10
+amoxicillin 250 MG / clavulanate 125 MG Oral Tablet,Drug,RxNorm,1713671,8,7
+Medicare Fee for Service (FFS),Payer,SOPT,286,11,6
+Hospital Inpatient (Including Medicare Part A) @ Interim-last claim (b),Visit,UB04 Typ bill,32303,10,6
+Blue Cross Insurance Indemnity,Payer,SOPT,337,15,5
+Hospital Outpatient @ Interim-Cont claim (b),Visit,UB04 Typ bill,32321,14,5
+naproxen sodium 220 MG Oral Tablet,Drug,RxNorm,1115171,6,5
+Hospital Inpatient (Including Medicare Part A) @ Late Charges Only,Visit,UB04 Typ bill,32304,5,5
+24 HR metformin hydrochloride 500 MG Extended Release Oral Tablet,Drug,RxNorm,40163924,232,4
+lisinopril 10 MG Oral Tablet,Drug,RxNorm,19080128,48,4
+Neonate discharged to another hospital for neonatal aftercare,Visit,UB04 Pt dis status,32595,12,4
+"Other Government Federal/State/Local, excluding Department of Corrections",Payer,SOPT,295,6,4
+acetaminophen 160 MG Chewable Tablet,Drug,RxNorm,19079924,4,4
+Expired,Visit,UB04 Pt dis status,32218,14,3
+No Payment from an Organization/Agency/Program/Private Payer Listed,Payer,SOPT,435,9,3
+Medicare Managed Care Other,Payer,SOPT,362,6,3
+Medicaid Managed Care,Payer,SOPT,290,5,3
+Refusal to Pay/Bad Debt,Payer,SOPT,441,5,3

@@ -1,0 +1,6 @@
+omop_table,concept_column,total_rows,unmapped_rows,mapped_rows,mapped_percent
+condition_occurrence,condition_concept_id,983,0,983,100.0
+drug_exposure,drug_concept_id,1275,279,996,78.12
+measurement,measurement_concept_id,14150,1,14149,99.99
+observation,observation_concept_id,14168,1,14167,99.99
+visit_occurrence,visit_concept_id,1386,1386,0,0.0
