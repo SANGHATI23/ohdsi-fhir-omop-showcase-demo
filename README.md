@@ -1,3 +1,56 @@
+## Athena Vocabulary Mapping Results
+
+This demo loads OHDSI Athena Standardized Vocabulary files locally and applies concept mappings during the FHIR-to-OMOP import process. Vocabulary CSV files are not included in GitHub because they are large and may be subject to vocabulary-specific licensing.
+
+### Loaded Vocabulary Tables
+
+| Table | Row Count |
+|---|---:|
+| vocabulary | 44 |
+| concept | 4,066,375 |
+| concept_relationship | 34,078,766 |
+| concept_ancestor | 2,163,000 |
+| concept_synonym | 2,346,129 |
+| drug_strength | 3,020,774 |
+
+### Mapping Summary
+
+| OMOP Table | Concept Column | Mapped Percent |
+|---|---|---:|
+| condition_occurrence | condition_concept_id | 100.00% |
+| drug_exposure | drug_concept_id | 78.12% |
+| measurement | measurement_concept_id | 99.99% |
+| observation | observation_concept_id | 99.99% |
+| visit_occurrence | visit_concept_id | 0.00% |
+
+The demo includes standard concept analytics outputs under `outputs/queries/`, including condition and drug exposure summaries joined to the OMOP `concept` table.
+
+## Athena Vocabulary Mapping Results
+
+This demo loads OHDSI Athena Standardized Vocabulary files locally and applies concept mappings during the FHIR-to-OMOP import process. Vocabulary CSV files are not included in GitHub because they are large and may be subject to vocabulary-specific licensing.
+
+### Loaded Vocabulary Tables
+
+| Table | Row Count |
+|---|---:|
+| vocabulary | 44 |
+| concept | 4,066,375 |
+| concept_relationship | 34,078,766 |
+| concept_ancestor | 2,163,000 |
+| concept_synonym | 2,346,129 |
+| drug_strength | 3,020,774 |
+
+### Mapping Summary
+
+| OMOP Table | Concept Column | Mapped Percent |
+|---|---|---:|
+| condition_occurrence | condition_concept_id | 100.00% |
+| drug_exposure | drug_concept_id | 78.12% |
+| measurement | measurement_concept_id | 99.99% |
+| observation | observation_concept_id | 99.99% |
+| visit_occurrence | visit_concept_id | 0.00% |
+
+The demo includes standard concept analytics outputs under `outputs/queries/`, including condition and drug exposure summaries joined to the OMOP `concept` table.
 # OHDSI Global Collaborator Showcase Demo
 
 ## Demo Title
