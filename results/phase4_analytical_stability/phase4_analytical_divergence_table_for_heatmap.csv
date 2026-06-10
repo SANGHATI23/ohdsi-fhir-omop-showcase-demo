@@ -1,0 +1,6 @@
+variant,demographic_missingness_pct,unknown_gender_pct,encounter_identity_traceability_loss,condition_source_value_change_count,condition_unmapped_concept_pct,drug_person_exposure_delta_pct,drug_source_value_change_count,missing_drug_source_value_pct
+V0_clean,0.0,0.0,0.0,0,100.0,0.0,0,38.748
+V1_missing_demographics,15.03268,15.03268,0.0,0,100.0,0.0,0,38.748
+V2_duplicate_encounter_ids,0.0,0.0,1.0,0,100.0,0.0,0,38.748
+V3_conflicting_codings,0.0,0.0,0.0,170,100.0,0.0,0,38.748
+V4_missing_medications,0.0,0.0,0.0,0,100.0,9.35960591133005,4,39.372

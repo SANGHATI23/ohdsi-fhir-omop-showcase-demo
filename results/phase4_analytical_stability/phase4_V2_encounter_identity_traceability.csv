@@ -1,0 +1,2 @@
+variant,test,omop_visit_occurrence_id_behavior,original_fhir_encounter_id_preserved,visit_source_value_meaning,visit_source_values_observed,analytical_interpretation
+V2_duplicate_encounter_ids,FHIR Encounter.id traceability in OMOP visit_occurrence,Regenerated sequential integer IDs,No,"Visit class/category, not Encounter.id","AMB, EMER, IMP, HH, VR",Duplicate FHIR Encounter identifiers did not create duplicate OMOP visit_occurrence_id values; the source-level identity defect was hidden by transformation logic.

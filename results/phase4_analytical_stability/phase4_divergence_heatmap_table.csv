@@ -1,0 +1,6 @@
+variant,person_rows_pct_divergence_from_V0,visit_occurrence_rows_pct_divergence_from_V0,condition_occurrence_rows_pct_divergence_from_V0,drug_exposure_rows_pct_divergence_from_V0,measurement_rows_pct_divergence_from_V0,observation_rows_pct_divergence_from_V0,procedure_occurrence_rows_pct_divergence_from_V0,person_missing_gender_count_pct_divergence_from_V0,person_missing_birth_year_count_pct_divergence_from_V0,duplicate_visit_source_rows_pct_divergence_from_V0,condition_null_or_zero_concept_count_pct_divergence_from_V0,drug_null_or_zero_concept_count_pct_divergence_from_V0,persons_with_drug_exposure_pct_divergence_from_V0
+V0_clean,,,,,,,,,,,,,
+V1_missing_demographics,,,,,,,,,,,,,
+V2_duplicate_encounter_ids,,,,,,,,,,,,,
+V3_conflicting_codings,,,,,,,,,,,,,
+V4_missing_medications,,,,,,,,,,,,,

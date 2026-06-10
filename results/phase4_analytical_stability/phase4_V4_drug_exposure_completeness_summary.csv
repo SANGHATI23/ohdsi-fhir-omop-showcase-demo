@@ -1,0 +1,6 @@
+variant,total_drug_rows,unique_drug_exposure_ids,persons_with_drug_exposure,unique_drug_concepts,unique_drug_source_values,null_or_zero_drug_concept_rows,missing_drug_source_value_rows,min_drug_start_date,max_drug_start_date,null_or_zero_drug_concept_pct,missing_drug_source_value_pct,persons_with_drug_exposure_pct
+V0_clean,25000,25000,609,1,146,25000,9687,1937-02-28,2026-06-06,100.0,38.748,56.86274509803921
+V1_missing_demographics,25000,25000,609,1,146,25000,9687,1937-02-28,2026-06-06,100.0,38.748,56.86274509803921
+V2_duplicate_encounter_ids,25000,25000,609,1,146,25000,9687,1937-02-28,2026-06-06,100.0,38.748,56.86274509803921
+V3_conflicting_codings,25000,25000,609,1,146,25000,9687,1937-02-28,2026-06-06,100.0,38.748,56.86274509803921
+V4_missing_medications,25000,25000,666,1,150,25000,9843,1937-02-28,2026-06-06,100.0,39.372,62.18487394957983

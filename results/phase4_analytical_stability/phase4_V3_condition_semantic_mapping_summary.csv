@@ -1,0 +1,6 @@
+variant,total_condition_rows,unique_condition_concepts,unique_condition_source_values,null_or_zero_condition_concept_rows,missing_condition_source_value_rows,persons_with_conditions,null_or_zero_condition_concept_pct,missing_condition_source_value_pct
+V0_clean,25000,1,247,25000,0,769,100.0,0.0
+V1_missing_demographics,25000,1,247,25000,0,769,100.0,0.0
+V2_duplicate_encounter_ids,25000,1,247,25000,0,769,100.0,0.0
+V3_conflicting_codings,25000,1,412,25000,0,769,100.0,0.0
+V4_missing_medications,25000,1,247,25000,0,769,100.0,0.0
