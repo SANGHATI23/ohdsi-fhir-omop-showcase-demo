@@ -12,7 +12,7 @@ This folder contains additional reviewer-strengthening analyses for the FHIRy-py
 
 ## Key interpretation
 
-- V4 drug-exposed cohort Jaccard vs V0: 0.000; lost from V0: 609; gained vs V0: 0.
-- V3 condition source-value JSD vs V0: nan; null JSD 95th percentile: 0.0043; observed exceeds null p95: False.
+- V4 drug-exposed cohort Jaccard vs V0: 0.903; lost from V0: 4; gained vs V0: 61.
+- V3 condition source-value JSD vs V0: 0.0524; null JSD 95th percentile: 0.0043; observed exceeds null p95: True.
 
 These analyses help connect engineering-level perturbation metrics to downstream analytical consequences.

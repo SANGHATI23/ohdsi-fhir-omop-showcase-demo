@@ -29,26 +29,23 @@ DB_EXTENSIONS = ["*.db", "*.sqlite", "*.sqlite3"]
 
 
 def find_variant_databases():
-    db_files = []
-    for root in SEARCH_ROOTS:
-        if root.exists():
-            for ext in DB_EXTENSIONS:
-                db_files.extend(glob.glob(str(root / "**" / ext), recursive=True))
+    """
+    Use the validated non-empty 25k SQLite databases.
+    The results_combined_25k SQLite files are zero-byte placeholders and must not be used.
+    """
+    variant_map = {
+        "V0": "/content/drive/MyDrive/fhir_omop_colab/results_25k/V0_clinical_core_25k.sqlite",
+        "V1": "/content/drive/MyDrive/fhir_omop_colab/results_V1_V4_25k/V1_missing_demographics_clinical_core_25k.sqlite",
+        "V2": "/content/drive/MyDrive/fhir_omop_colab/results_V1_V4_25k/V2_duplicate_encounter_ids_clinical_core_25k.sqlite",
+        "V3": "/content/drive/MyDrive/fhir_omop_colab/results_V1_V4_25k/V3_conflicting_codings_clinical_core_25k.sqlite",
+        "V4": "/content/drive/MyDrive/fhir_omop_colab/results_V1_V4_25k/V4_missing_medications_clinical_core_25k.sqlite",
+    }
 
-    variant_map = {}
-    for db in db_files:
-        name = Path(db).name.lower()
-        parent = str(Path(db).parent).lower()
-        text = name + " " + parent
+    missing = [v for v, p in variant_map.items() if not Path(p).exists() or Path(p).stat().st_size == 0]
+    if missing:
+        raise FileNotFoundError(f"Missing or empty validated SQLite files for variants: {missing}")
 
-        for v in ["v0", "v1", "v2", "v3", "v4"]:
-            if re.search(rf"\b{v}\b|{v}_|_{v}|{v}-|-{v}", text):
-                # Prefer files that look like OMOP/stability databases
-                if v.upper() not in variant_map:
-                    variant_map[v.upper()] = db
-                break
-
-    return dict(sorted(variant_map.items()))
+    return variant_map
 
 
 def table_exists(conn, table_name):

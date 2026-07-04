@@ -1,59 +1,26 @@
-variant,query,mean_runtime_sec,sd_runtime_sec,ci95_low_sec,ci95_high_sec,repeats,error
-V0,total_persons,0.0008242107999649306,0.00016065979377766776,0.0007246328281218566,0.0009237887718080046,10,
-V0,persons_with_conditions,0.0021615610998196645,0.0004078922940871571,0.0019087468367077216,0.0024143753629316074,10,
-V0,persons_with_drugs,0.0021635209000123723,0.00026488584485748976,0.0019993429524335898,0.002327698847591155,10,
-V0,condition_source_summary,0.017221086399968045,0.0035031611196469753,0.01504980464283655,0.01939236815709954,10,
-V0,condition_drug_overlap,0.14885197750008955,0.004533688736254887,0.14604196810876163,0.15166198689141747,10,
-V1,total_persons,0.0007969645999764907,0.00017789736026843045,0.0006867026737332532,0.0009072265262197283,10,
-V1,persons_with_conditions,0.002040192000185925,0.0001207510832545027,0.0019653497033946233,0.002115034296977227,10,
-V1,persons_with_drugs,0.0019355449999238772,8.923121865162374e-05,0.0018802389176148778,0.0019908510822328764,10,
-V1,condition_source_summary,0.014674972100056038,0.00019560331352746636,0.014553735910285965,0.014796208289826111,10,
-V1,condition_drug_overlap,0.1502856022000742,0.006954170011811026,0.14597536297129507,0.15459584142885333,10,
-V2,total_persons,,,,,10,Execution failed on sql 'SELECT COUNT(*) AS n FROM person': no such table: person
-V2,persons_with_conditions,,,,,10,Execution failed on sql 'SELECT COUNT(DISTINCT person_id) AS n FROM condition_occurrence': no such table: condition_occurrence
-V2,persons_with_drugs,,,,,10,Execution failed on sql 'SELECT COUNT(DISTINCT person_id) AS n FROM drug_exposure': no such table: drug_exposure
-V2,condition_source_summary,,,,,10,"Execution failed on sql '
-            SELECT condition_source_value, COUNT(*) AS n
-            FROM condition_occurrence
-            GROUP BY condition_source_value
-            ORDER BY n DESC
-            LIMIT 20
-        ': no such table: condition_occurrence"
-V2,condition_drug_overlap,,,,,10,"Execution failed on sql '
-            SELECT COUNT(DISTINCT c.person_id) AS n
-            FROM condition_occurrence c
-            INNER JOIN drug_exposure d
-              ON c.person_id = d.person_id
-        ': no such table: condition_occurrence"
-V3,total_persons,,,,,10,Execution failed on sql 'SELECT COUNT(*) AS n FROM person': no such table: person
-V3,persons_with_conditions,,,,,10,Execution failed on sql 'SELECT COUNT(DISTINCT person_id) AS n FROM condition_occurrence': no such table: condition_occurrence
-V3,persons_with_drugs,,,,,10,Execution failed on sql 'SELECT COUNT(DISTINCT person_id) AS n FROM drug_exposure': no such table: drug_exposure
-V3,condition_source_summary,,,,,10,"Execution failed on sql '
-            SELECT condition_source_value, COUNT(*) AS n
-            FROM condition_occurrence
-            GROUP BY condition_source_value
-            ORDER BY n DESC
-            LIMIT 20
-        ': no such table: condition_occurrence"
-V3,condition_drug_overlap,,,,,10,"Execution failed on sql '
-            SELECT COUNT(DISTINCT c.person_id) AS n
-            FROM condition_occurrence c
-            INNER JOIN drug_exposure d
-              ON c.person_id = d.person_id
-        ': no such table: condition_occurrence"
-V4,total_persons,,,,,10,Execution failed on sql 'SELECT COUNT(*) AS n FROM person': no such table: person
-V4,persons_with_conditions,,,,,10,Execution failed on sql 'SELECT COUNT(DISTINCT person_id) AS n FROM condition_occurrence': no such table: condition_occurrence
-V4,persons_with_drugs,,,,,10,Execution failed on sql 'SELECT COUNT(DISTINCT person_id) AS n FROM drug_exposure': no such table: drug_exposure
-V4,condition_source_summary,,,,,10,"Execution failed on sql '
-            SELECT condition_source_value, COUNT(*) AS n
-            FROM condition_occurrence
-            GROUP BY condition_source_value
-            ORDER BY n DESC
-            LIMIT 20
-        ': no such table: condition_occurrence"
-V4,condition_drug_overlap,,,,,10,"Execution failed on sql '
-            SELECT COUNT(DISTINCT c.person_id) AS n
-            FROM condition_occurrence c
-            INNER JOIN drug_exposure d
-              ON c.person_id = d.person_id
-        ': no such table: condition_occurrence"
+variant,query,mean_runtime_sec,sd_runtime_sec,ci95_low_sec,ci95_high_sec,repeats
+V0,total_persons,0.0008283128000584839,0.00013901836581560017,0.0007421483242344134,0.0009144772758825543,10
+V0,persons_with_conditions,0.0032253660000606033,9.055654279788047e-05,0.0031692384733353267,0.00328149352678588,10
+V0,persons_with_drugs,0.0032007426997552103,0.00013535637261933794,0.0031168479508292806,0.00328463744868114,10
+V0,condition_source_summary,0.02583953199991811,0.0019041201994729072,0.024659346073180675,0.027019717926655543,10
+V0,condition_drug_overlap,0.3064275439000085,0.00806625291738494,0.30142802854523326,0.3114270592547837,10
+V1,total_persons,0.0008024280000427098,0.00018220004872721113,0.0006894992398634664,0.0009153567602219531,10
+V1,persons_with_conditions,0.0031880833999821333,0.00014313317018920478,0.0030993685419845266,0.00327679825797974,10
+V1,persons_with_drugs,0.0031607823997546803,0.00012976462069308592,0.0030803534545794783,0.0032412113449298823,10
+V1,condition_source_summary,0.025843290899956628,0.0032381589295548486,0.023836259201927442,0.027850322597985814,10
+V1,condition_drug_overlap,0.1746186716000011,0.05271821915533636,0.14194358084312006,0.20729376235688216,10
+V2,total_persons,0.0007882330000029469,0.0001691529331171322,0.0006833909258594874,0.0008930750741464065,10
+V2,persons_with_conditions,0.0019942246000027807,7.392151841510331e-05,0.0019484075682099785,0.0020400416317955827,10
+V2,persons_with_drugs,0.0020026482998218853,8.215838686869865e-05,0.0019517260040693755,0.002053570595574395,10
+V2,condition_source_summary,0.016259279900077674,0.003324496322904483,0.014198735731244052,0.018319824068911295,10
+V2,condition_drug_overlap,0.1493253548001121,0.005926211855076102,0.1456522506378006,0.15299845896242362,10
+V3,total_persons,0.0008091264001450326,0.00018169459353940706,0.0006965109243369166,0.0009217418759531487,10
+V3,persons_with_conditions,0.001957172000038554,5.394071121923782e-05,0.0019237392008503648,0.001990604799226743,10
+V3,persons_with_drugs,0.001961772900085634,7.604884769131713e-05,0.0019146373359470174,0.002008908464224251,10
+V3,condition_source_summary,0.015395342300143966,0.0006522881552008658,0.014991049912951875,0.01579963468733606,10
+V3,condition_drug_overlap,0.15096416300002602,0.0071374830001244794,0.14654030520396547,0.15538802079608657,10
+V4,total_persons,0.000893528599954152,0.00018785571221350243,0.0007770944232288673,0.0010099627766794366,10
+V4,persons_with_conditions,0.0020776566001586617,0.00014105397946015876,0.0019902304379262187,0.0021650827623911047,10
+V4,persons_with_drugs,0.001969872499921621,7.329408844887251e-05,0.0019244443532508632,0.002015300646592379,10
+V4,condition_source_summary,0.014963343499948678,0.000765884383785573,0.014488643440833757,0.0154380435590636,10
+V4,condition_drug_overlap,0.14717885479994947,0.0053713942198406394,0.143849630170659,0.15050807942923994,10
