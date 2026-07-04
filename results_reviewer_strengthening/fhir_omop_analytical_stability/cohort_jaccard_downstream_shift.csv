@@ -1,0 +1,16 @@
+variant,cohort,v0_count,variant_count,overlap,union,lost_from_v0,gained_vs_v0,jaccard_vs_v0
+V0,any_condition,769,769,769,769,0,0,1.0
+V0,any_drug,609,609,609,609,0,0,1.0
+V0,condition_and_drug,609,609,609,609,0,0,1.0
+V1,any_condition,769,769,769,769,0,0,1.0
+V1,any_drug,609,609,609,609,0,0,1.0
+V1,condition_and_drug,609,609,609,609,0,0,1.0
+V2,any_condition,769,0,0,769,769,0,0.0
+V2,any_drug,609,0,0,609,609,0,0.0
+V2,condition_and_drug,609,0,0,609,609,0,0.0
+V3,any_condition,769,0,0,769,769,0,0.0
+V3,any_drug,609,0,0,609,609,0,0.0
+V3,condition_and_drug,609,0,0,609,609,0,0.0
+V4,any_condition,769,0,0,769,769,0,0.0
+V4,any_drug,609,0,0,609,609,0,0.0
+V4,condition_and_drug,609,0,0,609,609,0,0.0

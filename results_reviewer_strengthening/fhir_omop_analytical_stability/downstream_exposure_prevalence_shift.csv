@@ -1,0 +1,6 @@
+variant,persons,condition_persons,drug_persons,condition_prevalence,drug_exposure_prevalence,condition_and_drug_prevalence,condition_prevalence_change_vs_v0,condition_prevalence_pct_change_vs_v0,drug_exposure_prevalence_change_vs_v0,drug_exposure_prevalence_pct_change_vs_v0,condition_and_drug_prevalence_change_vs_v0,condition_and_drug_prevalence_pct_change_vs_v0
+V0,1071,769,609,0.7180205415499533,0.5686274509803921,0.5686274509803921,0.0,0.0,0.0,0.0,0.0,0.0
+V1,1071,769,609,0.7180205415499533,0.5686274509803921,0.5686274509803921,0.0,0.0,0.0,0.0,0.0,0.0
+V2,0,0,0,0.0,0.0,0.0,-0.7180205415499533,-100.0,-0.5686274509803921,-100.0,-0.5686274509803921,-100.0
+V3,0,0,0,0.0,0.0,0.0,-0.7180205415499533,-100.0,-0.5686274509803921,-100.0,-0.5686274509803921,-100.0
+V4,0,0,0,0.0,0.0,0.0,-0.7180205415499533,-100.0,-0.5686274509803921,-100.0,-0.5686274509803921,-100.0

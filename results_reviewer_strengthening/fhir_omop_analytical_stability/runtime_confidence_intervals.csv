@@ -1,0 +1,59 @@
+variant,query,mean_runtime_sec,sd_runtime_sec,ci95_low_sec,ci95_high_sec,repeats,error
+V0,total_persons,0.0008242107999649306,0.00016065979377766776,0.0007246328281218566,0.0009237887718080046,10,
+V0,persons_with_conditions,0.0021615610998196645,0.0004078922940871571,0.0019087468367077216,0.0024143753629316074,10,
+V0,persons_with_drugs,0.0021635209000123723,0.00026488584485748976,0.0019993429524335898,0.002327698847591155,10,
+V0,condition_source_summary,0.017221086399968045,0.0035031611196469753,0.01504980464283655,0.01939236815709954,10,
+V0,condition_drug_overlap,0.14885197750008955,0.004533688736254887,0.14604196810876163,0.15166198689141747,10,
+V1,total_persons,0.0007969645999764907,0.00017789736026843045,0.0006867026737332532,0.0009072265262197283,10,
+V1,persons_with_conditions,0.002040192000185925,0.0001207510832545027,0.0019653497033946233,0.002115034296977227,10,
+V1,persons_with_drugs,0.0019355449999238772,8.923121865162374e-05,0.0018802389176148778,0.0019908510822328764,10,
+V1,condition_source_summary,0.014674972100056038,0.00019560331352746636,0.014553735910285965,0.014796208289826111,10,
+V1,condition_drug_overlap,0.1502856022000742,0.006954170011811026,0.14597536297129507,0.15459584142885333,10,
+V2,total_persons,,,,,10,Execution failed on sql 'SELECT COUNT(*) AS n FROM person': no such table: person
+V2,persons_with_conditions,,,,,10,Execution failed on sql 'SELECT COUNT(DISTINCT person_id) AS n FROM condition_occurrence': no such table: condition_occurrence
+V2,persons_with_drugs,,,,,10,Execution failed on sql 'SELECT COUNT(DISTINCT person_id) AS n FROM drug_exposure': no such table: drug_exposure
+V2,condition_source_summary,,,,,10,"Execution failed on sql '
+            SELECT condition_source_value, COUNT(*) AS n
+            FROM condition_occurrence
+            GROUP BY condition_source_value
+            ORDER BY n DESC
+            LIMIT 20
+        ': no such table: condition_occurrence"
+V2,condition_drug_overlap,,,,,10,"Execution failed on sql '
+            SELECT COUNT(DISTINCT c.person_id) AS n
+            FROM condition_occurrence c
+            INNER JOIN drug_exposure d
+              ON c.person_id = d.person_id
+        ': no such table: condition_occurrence"
+V3,total_persons,,,,,10,Execution failed on sql 'SELECT COUNT(*) AS n FROM person': no such table: person
+V3,persons_with_conditions,,,,,10,Execution failed on sql 'SELECT COUNT(DISTINCT person_id) AS n FROM condition_occurrence': no such table: condition_occurrence
+V3,persons_with_drugs,,,,,10,Execution failed on sql 'SELECT COUNT(DISTINCT person_id) AS n FROM drug_exposure': no such table: drug_exposure
+V3,condition_source_summary,,,,,10,"Execution failed on sql '
+            SELECT condition_source_value, COUNT(*) AS n
+            FROM condition_occurrence
+            GROUP BY condition_source_value
+            ORDER BY n DESC
+            LIMIT 20
+        ': no such table: condition_occurrence"
+V3,condition_drug_overlap,,,,,10,"Execution failed on sql '
+            SELECT COUNT(DISTINCT c.person_id) AS n
+            FROM condition_occurrence c
+            INNER JOIN drug_exposure d
+              ON c.person_id = d.person_id
+        ': no such table: condition_occurrence"
+V4,total_persons,,,,,10,Execution failed on sql 'SELECT COUNT(*) AS n FROM person': no such table: person
+V4,persons_with_conditions,,,,,10,Execution failed on sql 'SELECT COUNT(DISTINCT person_id) AS n FROM condition_occurrence': no such table: condition_occurrence
+V4,persons_with_drugs,,,,,10,Execution failed on sql 'SELECT COUNT(DISTINCT person_id) AS n FROM drug_exposure': no such table: drug_exposure
+V4,condition_source_summary,,,,,10,"Execution failed on sql '
+            SELECT condition_source_value, COUNT(*) AS n
+            FROM condition_occurrence
+            GROUP BY condition_source_value
+            ORDER BY n DESC
+            LIMIT 20
+        ': no such table: condition_occurrence"
+V4,condition_drug_overlap,,,,,10,"Execution failed on sql '
+            SELECT COUNT(DISTINCT c.person_id) AS n
+            FROM condition_occurrence c
+            INNER JOIN drug_exposure d
+              ON c.person_id = d.person_id
+        ': no such table: condition_occurrence"
