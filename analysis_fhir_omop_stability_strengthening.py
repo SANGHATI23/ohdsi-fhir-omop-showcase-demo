@@ -39,6 +39,7 @@ def find_variant_databases():
         "V2": "/content/drive/MyDrive/fhir_omop_colab/results_V1_V4_25k/V2_duplicate_encounter_ids_clinical_core_25k.sqlite",
         "V3": "/content/drive/MyDrive/fhir_omop_colab/results_V1_V4_25k/V3_conflicting_codings_clinical_core_25k.sqlite",
         "V4": "/content/drive/MyDrive/fhir_omop_colab/results_V1_V4_25k/V4_missing_medications_clinical_core_25k.sqlite",
+        "V5": "/content/drive/MyDrive/fhir_omop_colab/results_V1_V4_25k/V5_missing_demographics_plus_conflicting_codings_clinical_core_25k.sqlite",
     }
 
     missing = [v for v, p in variant_map.items() if not Path(p).exists() or Path(p).stat().st_size == 0]
@@ -168,7 +169,7 @@ def main():
 
     if not variant_dbs:
         raise FileNotFoundError(
-            "No V0-V4 SQLite databases found. Put the OMOP .db/.sqlite files in the repo "
+            "No V0-V5 SQLite databases found. Put the OMOP .db/.sqlite files in the repo "
             "or under /content/drive/MyDrive/fhir_omop_colab, then rerun."
         )
 

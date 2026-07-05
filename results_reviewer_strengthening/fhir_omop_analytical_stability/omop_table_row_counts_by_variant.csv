@@ -34,3 +34,10 @@ V4,drug_exposure,25000
 V4,measurement,25000
 V4,observation,25000
 V4,procedure_occurrence,25000
+V5,person,1071
+V5,visit_occurrence,25000
+V5,condition_occurrence,25000
+V5,drug_exposure,25000
+V5,measurement,25000
+V5,observation,25000
+V5,procedure_occurrence,25000
