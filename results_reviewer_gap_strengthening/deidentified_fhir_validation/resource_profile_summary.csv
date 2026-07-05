@@ -1,0 +1,5 @@
+source_file,resource_type,records,unique_flattened_fields,missing_id_count,reference_count,unresolved_reference_count
+data_reviewer_gap_strengthening/synthetic_fhir_smoke_test/Condition.ndjson,Condition,50,17,0,100,0
+data_reviewer_gap_strengthening/synthetic_fhir_smoke_test/Encounter.ndjson,Encounter,50,12,0,50,0
+data_reviewer_gap_strengthening/synthetic_fhir_smoke_test/MedicationRequest.ndjson,MedicationRequest,32,15,0,64,0
+data_reviewer_gap_strengthening/synthetic_fhir_smoke_test/Patient.ndjson,Patient,50,7,0,0,0

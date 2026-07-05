@@ -1,0 +1,33 @@
+authoredOn,encounter.reference,id,intent,medicationCodeableConcept.coding,medicationCodeableConcept.text,resourceType,status,subject.reference
+2020-01-27,Encounter/encounter-001,medreq-001,order,Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler,Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler,MedicationRequest,active,Patient/patient-001
+2022-01-29,Encounter/encounter-002,medreq-002,order,Metformin 500 MG Oral Tablet,Metformin 500 MG Oral Tablet,MedicationRequest,active,Patient/patient-002
+2022-04-06,Encounter/encounter-005,medreq-005,order,Metformin 500 MG Oral Tablet,Metformin 500 MG Oral Tablet,MedicationRequest,active,Patient/patient-005
+2020-12-11,Encounter/encounter-006,medreq-006,order,Lisinopril 10 MG Oral Tablet,Lisinopril 10 MG Oral Tablet,MedicationRequest,active,Patient/patient-006
+2022-04-07,Encounter/encounter-007,medreq-007,order,Lisinopril 10 MG Oral Tablet,Lisinopril 10 MG Oral Tablet,MedicationRequest,active,Patient/patient-007
+2020-10-28,Encounter/encounter-008,medreq-008,order,Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler,Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler,MedicationRequest,active,Patient/patient-008
+2020-10-12,Encounter/encounter-010,medreq-010,order,Lisinopril 10 MG Oral Tablet,Lisinopril 10 MG Oral Tablet,MedicationRequest,active,Patient/patient-010
+2020-10-01,Encounter/encounter-011,medreq-011,order,Metformin 500 MG Oral Tablet,Metformin 500 MG Oral Tablet,MedicationRequest,active,Patient/patient-011
+2020-09-08,Encounter/encounter-012,medreq-012,order,Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler,Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler,MedicationRequest,active,Patient/patient-012
+2020-08-13,Encounter/encounter-013,medreq-013,order,Metformin 500 MG Oral Tablet,Metformin 500 MG Oral Tablet,MedicationRequest,active,Patient/patient-013
+2020-10-02,Encounter/encounter-014,medreq-014,order,Lisinopril 10 MG Oral Tablet,Lisinopril 10 MG Oral Tablet,MedicationRequest,active,Patient/patient-014
+2022-07-26,Encounter/encounter-015,medreq-015,order,Metformin 500 MG Oral Tablet,Metformin 500 MG Oral Tablet,MedicationRequest,active,Patient/patient-015
+2020-08-13,Encounter/encounter-017,medreq-017,order,Metformin 500 MG Oral Tablet,Metformin 500 MG Oral Tablet,MedicationRequest,active,Patient/patient-017
+2021-10-05,Encounter/encounter-018,medreq-018,order,Lisinopril 10 MG Oral Tablet,Lisinopril 10 MG Oral Tablet,MedicationRequest,active,Patient/patient-018
+2022-06-26,Encounter/encounter-020,medreq-020,order,Lisinopril 10 MG Oral Tablet,Lisinopril 10 MG Oral Tablet,MedicationRequest,active,Patient/patient-020
+2020-07-23,Encounter/encounter-023,medreq-023,order,Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler,Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler,MedicationRequest,active,Patient/patient-023
+2020-03-01,Encounter/encounter-025,medreq-025,order,Lisinopril 10 MG Oral Tablet,Lisinopril 10 MG Oral Tablet,MedicationRequest,active,Patient/patient-025
+2021-03-25,Encounter/encounter-029,medreq-029,order,Metformin 500 MG Oral Tablet,Metformin 500 MG Oral Tablet,MedicationRequest,active,Patient/patient-029
+2021-08-26,Encounter/encounter-030,medreq-030,order,Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler,Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler,MedicationRequest,active,Patient/patient-030
+2020-08-23,Encounter/encounter-031,medreq-031,order,Metformin 500 MG Oral Tablet,Metformin 500 MG Oral Tablet,MedicationRequest,active,Patient/patient-031
+2021-04-30,Encounter/encounter-033,medreq-033,order,Metformin 500 MG Oral Tablet,Metformin 500 MG Oral Tablet,MedicationRequest,active,Patient/patient-033
+2021-11-01,Encounter/encounter-035,medreq-035,order,Lisinopril 10 MG Oral Tablet,Lisinopril 10 MG Oral Tablet,MedicationRequest,active,Patient/patient-035
+2020-07-16,Encounter/encounter-036,medreq-036,order,Metformin 500 MG Oral Tablet,Metformin 500 MG Oral Tablet,MedicationRequest,active,Patient/patient-036
+2020-09-13,Encounter/encounter-037,medreq-037,order,Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler,Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler,MedicationRequest,active,Patient/patient-037
+2022-08-07,Encounter/encounter-038,medreq-038,order,Metformin 500 MG Oral Tablet,Metformin 500 MG Oral Tablet,MedicationRequest,active,Patient/patient-038
+2021-07-24,Encounter/encounter-041,medreq-041,order,Lisinopril 10 MG Oral Tablet,Lisinopril 10 MG Oral Tablet,MedicationRequest,active,Patient/patient-041
+2021-08-22,Encounter/encounter-043,medreq-043,order,Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler,Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler,MedicationRequest,active,Patient/patient-043
+2020-05-03,Encounter/encounter-045,medreq-045,order,Lisinopril 10 MG Oral Tablet,Lisinopril 10 MG Oral Tablet,MedicationRequest,active,Patient/patient-045
+2021-08-02,Encounter/encounter-046,medreq-046,order,Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler,Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler,MedicationRequest,active,Patient/patient-046
+2020-09-29,Encounter/encounter-047,medreq-047,order,Metformin 500 MG Oral Tablet,Metformin 500 MG Oral Tablet,MedicationRequest,active,Patient/patient-047
+2021-09-29,Encounter/encounter-048,medreq-048,order,Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler,Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler,MedicationRequest,active,Patient/patient-048
+2022-08-14,Encounter/encounter-049,medreq-049,order,Metformin 500 MG Oral Tablet,Metformin 500 MG Oral Tablet,MedicationRequest,active,Patient/patient-049

@@ -1,0 +1,9 @@
+workflow,resource_type,rows,columns,runtime_sec,cells,non_null_cells,missing_cells,missing_fraction,source_file
+fhiry_style_flatten,Condition,50,8,0.0013554319994000252,400,400,0,0.0,data_reviewer_gap_strengthening/synthetic_fhir_smoke_test/Condition.ndjson
+generic_json_flatten,Condition,50,11,0.0012647549992834684,550,550,0,0.0,data_reviewer_gap_strengthening/synthetic_fhir_smoke_test/Condition.ndjson
+fhiry_style_flatten,Encounter,50,9,0.0008234380002249964,450,450,0,0.0,data_reviewer_gap_strengthening/synthetic_fhir_smoke_test/Encounter.ndjson
+generic_json_flatten,Encounter,50,9,0.0008249940001405776,450,450,0,0.0,data_reviewer_gap_strengthening/synthetic_fhir_smoke_test/Encounter.ndjson
+fhiry_style_flatten,MedicationRequest,32,9,0.0006959070015000179,288,288,0,0.0,data_reviewer_gap_strengthening/synthetic_fhir_smoke_test/MedicationRequest.ndjson
+generic_json_flatten,MedicationRequest,32,11,0.0008049319985730108,352,352,0,0.0,data_reviewer_gap_strengthening/synthetic_fhir_smoke_test/MedicationRequest.ndjson
+fhiry_style_flatten,Patient,50,5,0.0005175260012038052,250,250,0,0.0,data_reviewer_gap_strengthening/synthetic_fhir_smoke_test/Patient.ndjson
+generic_json_flatten,Patient,50,6,0.0006741569995938335,300,300,0,0.0,data_reviewer_gap_strengthening/synthetic_fhir_smoke_test/Patient.ndjson

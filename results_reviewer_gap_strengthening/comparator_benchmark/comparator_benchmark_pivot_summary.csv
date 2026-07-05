@@ -1,0 +1,7 @@
+,columns,columns,missing_fraction,missing_fraction,non_null_cells,non_null_cells,rows,rows,runtime_sec,runtime_sec
+workflow,fhiry_style_flatten,generic_json_flatten,fhiry_style_flatten,generic_json_flatten,fhiry_style_flatten,generic_json_flatten,fhiry_style_flatten,generic_json_flatten,fhiry_style_flatten,generic_json_flatten
+resource_type,,,,,,,,,,
+Condition,8,11,0.0,0.0,400,550,50,50,0.0013554319994,0.0012647549992834
+Encounter,9,9,0.0,0.0,450,450,50,50,0.0008234380002249,0.0008249940001405
+MedicationRequest,9,11,0.0,0.0,288,352,32,32,0.0006959070015,0.000804931998573
+Patient,5,6,0.0,0.0,250,300,50,50,0.0005175260012038,0.0006741569995938
