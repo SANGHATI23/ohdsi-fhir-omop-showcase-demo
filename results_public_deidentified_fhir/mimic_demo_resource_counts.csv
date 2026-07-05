@@ -1,0 +1,17 @@
+file,resource_type,record_count
+MimicCondition.ndjson.gz,Condition,4506
+MimicConditionED.ndjson.gz,Condition,545
+MimicEncounter.ndjson.gz,Encounter,275
+MimicEncounterED.ndjson.gz,Encounter,222
+MimicEncounterICU.ndjson.gz,Encounter,140
+MimicMedication.ndjson.gz,Medication,1480
+MimicMedicationAdministration.ndjson.gz,MedicationAdministration,36131
+MimicMedicationDispense.ndjson.gz,MedicationDispense,14293
+MimicMedicationRequest.ndjson.gz,MedicationRequest,17552
+MimicObservationChartevents.ndjson.gz,Observation,668862
+MimicObservationED.ndjson.gz,Observation,2742
+MimicObservationLabevents.ndjson.gz,Observation,107727
+MimicPatient.ndjson.gz,Patient,100
+MimicProcedure.ndjson.gz,Procedure,722
+MimicProcedureED.ndjson.gz,Procedure,1260
+MimicProcedureICU.ndjson.gz,Procedure,1468

@@ -1,0 +1,26 @@
+file,source_field_group,total_values,unique_values,shannon_entropy_bits,normalized_entropy,most_common_value,most_common_count
+MimicCondition.ndjson.gz,code_first_coding,4506,1474,9.559024287205524,0.9081758955761695,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-diagnosis-icd9|4019,68
+MimicConditionED.ndjson.gz,code_first_coding,545,288,7.639697778713714,0.9351001113676084,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-diagnosis-icd9|4019,21
+MimicEncounter.ndjson.gz,status,275,1,0.0,0.0,finished,275
+MimicEncounterED.ndjson.gz,status,222,1,0.0,0.0,finished,222
+MimicEncounterICU.ndjson.gz,status,140,1,0.0,0.0,finished,140
+MimicMedication.ndjson.gz,code_first_coding,1480,1326,10.308440580100546,0.9937891335095279,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-medication-ndc|00641047725,5
+MimicMedication.ndjson.gz,status,1480,1,0.0,0.0,active,1480
+MimicMedicationAdministration.ndjson.gz,medication_first_coding,36131,895,7.871457511041037,0.802739456962162,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-medication-formulary-drug-cd|NACLFLUSH,2513
+MimicMedicationAdministration.ndjson.gz,status,36131,1,0.0,0.0,completed,36131
+MimicMedicationDispense.ndjson.gz,medication_first_coding,14293,578,7.227585897270018,0.7877541625274612,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-medication-name|Insulin,956
+MimicMedicationDispense.ndjson.gz,status,14293,1,0.0,0.0,completed,14293
+MimicMedicationRequest.ndjson.gz,medication_first_coding,2327,309,6.493741893020667,0.7850777874619717,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-medication-name|Sodium Chloride 0.9% Flush,259
+MimicMedicationRequest.ndjson.gz,status,17552,3,0.9237644803858349,0.5828304959679003,completed,11693
+MimicObservationChartevents.ndjson.gz,code_first_coding,668862,1318,8.436559909814816,0.8140148879422546,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-chartevents-d-items|227969,19330
+MimicObservationChartevents.ndjson.gz,status,668862,1,0.0,0.0,final,668862
+MimicObservationED.ndjson.gz,code_first_coding,2742,4,1.6332455604244123,0.8166227802122061,http://loinc.org|98137-3,1260
+MimicObservationED.ndjson.gz,status,2742,1,0.0,0.0,final,2742
+MimicObservationLabevents.ndjson.gz,code_first_coding,107727,498,6.492316863081131,0.7245887793667721,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-d-labitems|50971,3022
+MimicObservationLabevents.ndjson.gz,status,107727,2,0.0033596542310927848,0.0033596542310927848,final,107700
+MimicProcedure.ndjson.gz,code_first_coding,722,352,7.79758394021916,0.9217621575236811,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-procedure-icd10|02HV33Z,23
+MimicProcedure.ndjson.gz,status,722,1,0.0,0.0,completed,722
+MimicProcedureED.ndjson.gz,code_first_coding,1260,2,0.671671908573625,0.671671908573625,http://snomed.info/sct|410188000,1038
+MimicProcedureED.ndjson.gz,status,1260,1,0.0,0.0,completed,1260
+MimicProcedureICU.ndjson.gz,code_first_coding,1468,82,4.992619233304648,0.7853052919862932,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-d-items|224275,174
+MimicProcedureICU.ndjson.gz,status,1468,3,0.13651980846754552,0.08613440911405107,completed,1441

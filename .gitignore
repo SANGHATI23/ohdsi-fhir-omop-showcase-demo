@@ -41,3 +41,7 @@ temp/
 *.tar.gz
 *.7z
 *.gz
+
+# Public/deidentified FHIR validation raw downloads
+data_public_deidentified_fhir/
+
