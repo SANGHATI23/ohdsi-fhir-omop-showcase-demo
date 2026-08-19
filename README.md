@@ -1,15 +1,39 @@
 FHIRy–pyOMOP Transformation Fidelity
 
-An auditable, staged FHIR R4 → FHIRy → pandas → pyOMOP → OMOP CDM workflow with a lightweight Transformation Fidelity Layer (TFL) for source-to-target traceability, deterministic warning detection, and transformation-fidelity measurement.
+An auditable, staged FHIR R4 → FHIRy → pandas → pyOMOP → OMOP CDM workflow with a lightweight Transformation Fidelity Layer (TFL) for source-to-target lineage, deterministic information-fate classification, transformation warnings, and reproducible fidelity measurement.
 
-Research focus: the contribution is the transformation technique and its audit layer.
-V0–V5 are controlled validation experiments used to test whether the technique exposes known transformation problems.
+Research focus: the methodological contribution is the transformation-fidelity layer.
+V0–V5 are controlled validation variants used to test whether the method detects known transformation conditions.
+
+Current authoritative version
+
+The authoritative manuscript/reproducibility freeze for this repository is:
+
+Release/tag: tfl-submission-freeze-v15
+
+The release contains:
+
+FHIRy_pyOMOP_TFL_submission_freeze_v15.zip
+
+SHA256
+
+3fd92db2f9ad2e77eeb5df768f58cb448d5fac298d58ce7a23b45c2d9eb08be0
+
+The v15 freeze supersedes earlier intermediate TFL metric tables where definitions were subsequently hardened or corrected.
+
+Earlier notebooks are intentionally retained to preserve development provenance.
 
 Overview
 
-FHIR and OMOP serve different purposes: FHIR is designed for interoperable clinical data exchange, while the OMOP Common Data Model is designed for standardized observational analytics.
+FHIR and OMOP serve different purposes.
 
-This repository implements a staged transformation workflow:
+FHIR is designed for interoperable exchange of clinical information.
+
+OMOP CDM is designed for standardized observational analysis.
+
+A successful FHIR-to-OMOP transformation can therefore satisfy structural target requirements while still changing or obscuring source identity, coding representation, attribution, or traceability.
+
+This repository implements:
 
 FHIR R4 Bulk NDJSON
         ↓
@@ -20,43 +44,22 @@ pandas DataFrames
       pyOMOP
         ↓
     OMOP CDM
+        │
+        └────────→ Transformation Fidelity Layer
+                    • source-to-target lineage
+                    • information fate
+                    • deterministic warnings
+                    • fidelity measures
 
-The workflow is extended with a Transformation Fidelity Layer (TFL) that operates alongside the transformation without modifying the OMOP schema:
-
-FHIR source
-    │
-    ├──────────────→ source identity
-    │
-FHIRy / pandas
-    │
-    ├──────────────→ mapping rule
-    │
-pyOMOP
-    │
-    ├──────────────→ target OMOP record
-    │
-OMOP CDM
-    │
-    └──────────────→ TFL sidecar audit
-                       • source-to-target lineage
-                       • information fate
-                       • deterministic warnings
-                       • fidelity metrics
-
-The TFL is intended to make transformation behavior explicit when a pipeline can remain structurally successful even though source identity, coding representation, completeness, or attribution has changed.
-
-
+The Transformation Fidelity Layer (TFL) operates as a sidecar audit and does not modify the OMOP CDM schema.
 
 OHDSI 2026 Global Collaborator Showcase
 
-This repository also contains the software and reproducibility materials developed for the 2026 OHDSI Global Collaborator Showcase software-demonstration work on lightweight FHIR-to-OMOP interoperability using pyOMOP.
+This repository also contains the software and reproducibility materials developed for the 2026 OHDSI Global Collaborator Showcase software demonstration:
 
-Showcase work
-
-Software-demo title:
 A Lightweight FHIR-to-OMOP Software Demonstration Using pyOMOP
 
-The original showcase workflow demonstrated a practical path from synthetic FHIR Bulk Data to a queryable OMOP CDM:
+The original showcase demonstrated a lightweight path from synthetic FHIR Bulk Data to a locally queryable OMOP CDM:
 
 Synthetic FHIR R4 Bulk NDJSON
             ↓
@@ -68,71 +71,25 @@ Synthetic FHIR R4 Bulk NDJSON
             ↓
       Result summaries
 
-The demo was designed as a lightweight interoperability demonstration rather than a production institutional ETL implementation. It showed that a researcher could:
+The showcase established the software foundation for the later transformation-fidelity work.
 
-generate synthetic FHIR data with Synthea,
+The original workflow demonstrated how to:
 
-transform FHIR resources into OMOP CDM tables using pyOMOP,
+generate synthetic FHIR data with Synthea;
 
-load and query the resulting OMOP database locally with SQLite,
+transform FHIR resources to OMOP CDM using pyOMOP;
 
-inspect demographic and clinical-domain summaries,
+persist OMOP tables in SQLite;
 
-apply OHDSI Athena vocabulary assets locally,
+query demographic and clinical-domain summaries;
 
-generate condition and drug-exposure summaries joined to OMOP concepts, and
+use local OHDSI Athena vocabulary assets;
 
-package the workflow into a small reproducible software demonstration.
+inspect mapped condition and drug-exposure concepts; and
 
-Original OHDSI demo scripts
+package the process as a reproducible software demonstration.
 
-The root script:
-
-run_showcase_demo.sh
-
-runs the original showcase sequence, including OMOP counts and analytical summaries.
-
-The repository also retains the supporting scripts under:
-
-scripts/
-
-These materials are kept because the current TFL work extends the original OHDSI interoperability demonstration; it does not replace or erase it.
-
-Athena vocabulary mapping used in the showcase
-
-The original OHDSI demonstration used locally downloaded OHDSI Athena Standardized Vocabulary assets.
-
-The repository does not redistribute the large Athena vocabulary CSV files, but the showcase workflow used the following loaded vocabulary assets:
-
-Vocabulary table
-
-Rows loaded
-
-vocabulary
-
-44
-
-concept
-
-4,066,375
-
-concept_relationship
-
-34,078,766
-
-concept_ancestor
-
-2,163,000
-
-concept_synonym
-
-2,346,129
-
-drug_strength
-
-3,020,774
-
-The original mapping summary reported:
+Original OHDSI demo mapping summary
 
 OMOP table
 
@@ -170,40 +127,19 @@ visit_concept_id
 
 0.00%
 
-These mapping percentages belong to the original OHDSI software-demo workflow and should not be confused with the later TFL source-mapping-coverage metric.
+These percentages belong to the original OHDSI vocabulary-mapping demonstration.
 
-Relationship between the OHDSI demo and the TFL manuscript
-
-The repository now supports two connected layers of work:
-
-OHDSI showcase foundation
-Synthetic FHIR → pyOMOP → OMOP → OHDSI analytics
-                         │
-                         ↓
-Research extension
-FHIR → FHIRy → pandas → pyOMOP → OMOP
-                         +
-            Transformation Fidelity Layer
-
-The OHDSI showcase established the lightweight end-to-end FHIR-to-OMOP software workflow and OMOP analytical usability.
-
-The TFL extension asks a more specific methodological question:
-
-When a FHIR-to-OMOP transformation completes successfully, can the transformation also make source-to-target lineage, information loss, ambiguity, and warning conditions explicitly auditable?
-
-Accordingly:
-
-the OHDSI demo remains an important interoperability/software foundation of this repository;
-
-the TFL notebooks extend that work with explicit transformation auditing;
-
-V0–V5 validate the TFL behavior under controlled perturbations;
-
-the older OHDSI scripts, query summaries, and vocabulary-mapping outputs remain preserved for reproducibility and historical continuity.
+They are not the same as the TFL source mapping coverage metric defined later in this repository.
 
 Transformation Fidelity Layer
 
-The TFL records one auditable transformation event using fields such as:
+The TFL records explicit source-to-target transformation events.
+
+Frozen TFL schema
+
+The submission freeze uses TFL schema v1.0.0.
+
+Core fields include:
 
 Field
 
@@ -211,7 +147,7 @@ Purpose
 
 transformation_id
 
-Stable identifier for the transformation event
+Stable transformation-event identifier
 
 source_resource_type
 
@@ -223,11 +159,11 @@ Source resource identifier
 
 source_reference_or_path
 
-FHIR path/reference used by the mapping
+Source FHIR path or reference
 
 source_value_or_code
 
-Optional source value/code
+Optional source value or code
 
 target_omop_table
 
@@ -239,11 +175,11 @@ Target OMOP record identifier
 
 target_omop_field
 
-Target field(s)
+Target field when applicable
 
 mapping_rule_id
 
-Deterministic mapping rule
+Deterministic transformation rule
 
 fidelity_status
 
@@ -251,15 +187,15 @@ Information-fate classification
 
 warning_code
 
-Deterministic warning(s)
+Deterministic warning
 
 transformation_version
 
-Transformation implementation/version
+Transformation implementation version
 
 Information-fate taxonomy
 
-The current implementation uses:
+The frozen information-fate vocabulary is:
 
 PRESERVED
 
@@ -275,9 +211,11 @@ DROPPED
 
 TRACEABILITY_LOSS
 
-Warning families
+TRACEABILITY_LOSS indicates a lineage-eligible transformation event for which the original source identity cannot be reliably recovered after transformation.
 
-Controlled validation currently exercises:
+Frozen warning vocabulary
+
+The method currently includes:
 
 W_DEMOGRAPHIC_MISSING
 
@@ -287,31 +225,43 @@ W_TRACEABILITY_LOSS
 
 W_CONFLICTING_CODING
 
+W_UNMAPPED_RESOURCE
+
 W_MEDICATION_ATTRIBUTION
 
-The framework also reserves warning categories for additional transformation conditions such as unresolved references or unmapped resources.
+W_UNRESOLVED_REFERENCE
 
-Primary Fidelity Measures
+The warnings are deterministic and versioned.
 
-The TFL reports four separate primary measures.
+They are not generated by an LLM, probabilistic mapper, or learned ontology model.
+
+Four primary TFL measures
+
+The TFL reports four measures separately.
+
+No composite fidelity score is used.
 
 1. Lineage coverage
 
-Fraction of mapped transformation events for which a source resource can be connected to a target OMOP record without a traceability-loss state.
+Lineage coverage is evaluated among lineage-eligible audit events.
+
+UNMAPPED and DROPPED events are excluded from the lineage denominator.
+
+TRACEABILITY_LOSS remains lineage eligible and counts as lineage failure.
 
 2. Source mapping coverage
 
-Fraction of unique source resources with at least one mapped OMOP target.
-
-The source-resource key is:
+Source mapping coverage is calculated at the unique source-resource level, using:
 
 (source_resource_type, source_df_index)
 
-rather than source_resource_id, because the V2 experiment intentionally contains duplicated Encounter identifiers.
+A source resource counts as mapped when at least one audit event resolves to an OMOP target.
+
+source_resource_id is not used as the unique denominator key because V2 intentionally contains duplicated Encounter identifiers.
 
 3. Transformation-loss rate
 
-Fraction of audited source events classified as:
+Fraction of audited events classified as:
 
 UNMAPPED
 
@@ -321,27 +271,27 @@ TRACEABILITY_LOSS
 
 4. Ambiguity/warning rate
 
-Fraction of audited events classified as ambiguous and/or carrying a deterministic transformation warning.
+Fraction of audited events that are classified as AMBIGUOUS or carry at least one deterministic warning.
 
-No composite fidelity score is used.
+Controlled validation design
 
-Controlled Validation Design
+The study uses one clean baseline:
 
-The validation uses one clean baseline, V0 (N = 1,071).
+V0, N = 1,071
 
-V1–V5 are controlled perturbations of that baseline and are used to validate the transformation-fidelity mechanism.
+V1–V5 are controlled variants derived from that baseline.
 
 Variant
 
-Controlled perturbation
+Controlled condition
 
-Expected TFL response
+Primary expected response
 
 V0
 
-Clean baseline
+Frozen clean baseline
 
-Baseline fidelity profile
+Baseline TFL profile
 
 V1
 
@@ -357,7 +307,7 @@ W_DUPLICATE_SOURCE_ID, W_TRACEABILITY_LOSS
 
 V3
 
-Conflicting/competing condition coding representations
+Competing Condition coding representations
 
 W_CONFLICTING_CODING
 
@@ -369,15 +319,17 @@ W_MEDICATION_ATTRIBUTION
 
 V5
 
-Combined V1 + V3 perturbation
+Combined V1 + V3 condition
 
 Demographic + coding warnings
 
-The perturbations validate the technique; they are not the methodological contribution.
+The perturbations validate the method.
 
-Final Primary Results
+They are not the methodological contribution.
 
-The finalized resource-level metrics are:
+Final frozen primary results — v15
+
+These are the authoritative manuscript-ready metrics.
 
 Variant
 
@@ -385,9 +337,9 @@ Lineage coverage
 
 Source mapping coverage
 
-Transformation-loss rate
+Transformation loss
 
-Ambiguity/warning rate
+Ambiguity/warning
 
 V0
 
@@ -397,7 +349,7 @@ V0
 
 15.76%
 
-21.16%
+15.76%
 
 V1
 
@@ -407,7 +359,7 @@ V1
 
 15.76%
 
-21.25%
+15.85%
 
 V2
 
@@ -417,7 +369,7 @@ V2
 
 17.09%
 
-22.50%
+17.09%
 
 V3
 
@@ -427,7 +379,7 @@ V3
 
 15.76%
 
-22.56%
+17.16%
 
 V4
 
@@ -437,7 +389,7 @@ V4
 
 14.41%
 
-19.99%
+14.98%
 
 V5
 
@@ -447,189 +399,409 @@ V5
 
 15.76%
 
-22.65%
+17.25%
 
 Important interpretation of V4
 
-V4 maps the same absolute number of source resources as the other variants (126,071), but its source-resource denominator is smaller because of the medication perturbation.
+V4 contains fewer total unique source resources because of the controlled medication perturbation.
 
-Therefore the higher V4 source-mapping percentage (83.21%) is a denominator effect and should not be interpreted as improved transformation performance.
+Mapped source resources remain:
 
-Key Controlled Findings
+126,071
 
-V1 — demographic completeness
+Therefore:
 
-V1 produces 161 demographic warning cases relative to a clean V0 baseline.
+V0 source mapping coverage = 126,071 / 154,333 = 81.69%
+V4 source mapping coverage = 126,071 / 151,507 = 83.21%
+
+The higher V4 percentage is a denominator effect.
+
+It does not represent improved mapping performance.
+
+Final controlled warning findings
+
+V1 — missing demographics
+
+V1 produced:
+
+161 W_DEMOGRAPHIC_MISSING source rows
+
+V5 reproduced the same demographic warning response.
 
 V2 — source-identifier traceability
 
-The raw V2 FHIR source contains:
+The V2 source contains:
 
 25,000 Encounter resources
-
 23,790 unique Encounter IDs
-
 1,183 duplicated identifier values
+2,393 rows involved in duplicated identifiers
 
-2,393 Encounter rows involved in duplicated IDs
-
-After transformation, the OMOP database contains:
+After transformation:
 
 25,000 visit_occurrence rows
-
 25,000 unique visit_occurrence_id values
+0 invalid person links
 
-The target therefore remains structurally valid while the original duplicated Encounter identity is no longer recoverable from regenerated target identifiers.
+TFL detected:
 
-The TFL captures this as:
+2,393 W_DUPLICATE_SOURCE_ID rows
+2,393 W_TRACEABILITY_LOSS rows
 
-W_DUPLICATE_SOURCE_ID
-W_TRACEABILITY_LOSS
-TRACEABILITY_LOSS
+Lineage coverage changed from:
 
-This produces the largest primary lineage effect:
+V0: 100.00%
+V2:  98.42%
 
-V0 lineage coverage: 100.00%
-V2 lineage coverage:  98.42%
+while source mapping coverage remained:
 
-V3 — condition coding representation
+81.69%
 
-The controlled condition-coding perturbation changes the number of observed coding representations from:
+This is the central transformation-fidelity example:
+
+A structurally valid OMOP target does not necessarily imply preservation of source identity.
+
+V3 — coding-representation ambiguity
+
+Unique normalized Condition coding representations changed from:
 
 V0: 247
 V3: 412
 
-The corrected deterministic warning rule identifies:
+The deterministic rule flagged:
 
-V0:    0 warning rows
-V1:    0
-V2:    0
-V3: 2,510
-V4:    0
-V5: 2,510
+2,510 / 25,000 Condition rows
+10.04%
 
-V3 therefore increases ambiguity/warning rate while preserving source-to-target lineage.
+with:
 
-V5 — combined perturbation
+W_CONFLICTING_CODING
 
-V5 combines the V1 demographic perturbation and the V3 coding perturbation.
+Primary TFL response:
 
-It reproduces both expected warning families without adding the V2 identity perturbation.
+V0 ambiguity/warning: 15.76%
+V3 ambiguity/warning: 17.16%
 
-Supporting Analytical Validation
+Supporting analytical evidence:
 
-The repository also retains secondary analytical checks that help characterize downstream consequences of the controlled transformations.
+condition_source_value categories: 247 → 412
+Shannon entropy: 5.337 → 5.801 bits
+Δ entropy: +0.464 bits
+Jensen–Shannon divergence: 0.0524
+V0 bootstrap/null 95th percentile: 0.00425
 
-These include:
+This warning represents source coding-representation heterogeneity under the configured deterministic rule.
 
-row-count reconciliation
+It is not presented as ontology-level semantic contradiction.
 
-patient-level Jaccard similarity
+V4 — hardened medication attribution
 
-Jensen–Shannon divergence
+The final v14/v15 medication rule replaced the broader warning logic used during earlier development.
 
-Shannon entropy
+The hardened deterministic rule evaluates:
 
-temporal-integrity checks
+patient reference resolution;
 
-exposure-prevalence change
+medication code/reference resolution;
 
-bootstrap/null divergence baselines
+status;
 
-SQLite query-runtime profiling
+available event dates; and
 
-database-size comparison
+mapping eligibility.
 
-public/deidentified FHIR profiling
+Final warning response:
 
-shared-input local tabularization comparison
+V0: 0 W_MEDICATION_ATTRIBUTION
+V1: 0
+V2: 0
+V3: 0
+V4: 1,003
+V5: 0
 
-These analyses are supporting validation. They do not define the TFL method.
+All 1,003 V4 warnings were caused by:
 
-Selected supporting findings
+UNRESOLVED_MEDICATION_REFERENCE
 
-Condition-source heterogeneity
+This hardened result supersedes the older development-stage medication-warning counts.
 
-V3 increased condition_source_value categories from 247 to 412 and increased Shannon entropy from approximately 5.337 to 5.801 bits.
+Supporting drug-exposure consequence
 
-Observed condition-source JSD was approximately 0.0524, above the V0 bootstrap/null 95th percentile of approximately 0.00425.
-
-Medication-related cohort change
-
-V4 changed the drug-exposed cohort from:
+The drug-exposed cohort changed from:
 
 V0: 609 persons
 V4: 666 persons
 
 with:
 
-Jaccard similarity: 0.903
+overlap = 605
+lost = 4
+gained = 61
+Jaccard similarity = 0.903
+prevalence = 56.86% → 62.18%
+absolute change = +5.32 percentage points
+relative change = +9.36%
 
-prevalence: 56.86% → 62.18%
+These downstream values are supporting evidence.
 
-absolute change: +5.32 percentage points
+They do not define the TFL method.
 
-These results illustrate why transformation warnings can matter downstream even when a target database loads successfully.
+Unresolved-reference micro-test
 
-Encounter Restoration
+REF_MICRO_01 is a focused method test kept outside the V0–V5 numbering.
 
-An earlier normalization pass omitted the Encounter domain from the flattened source used for OMOP persistence.
+A resolvable Encounter.subject.reference from frozen V0 was replaced with:
 
-The repair workflow therefore:
+Patient/TFL-UNRESOLVED-REFERENCE
 
-reads the original V1–V4 controlled FHIR archives,
+The original reference resolved.
 
-verifies that the unaffected Encounter controls (V1, V3, V4) are identical,
+The injected reference did not.
 
-reconstructs the V0 Encounter baseline from that verified unaffected consensus,
+TFL produced:
 
-uses baseline Encounter data for V5 because V5 combines only V1 Patient and V3 Condition perturbations,
+W_UNRESOLVED_REFERENCE
+TRACEABILITY_LOSS
+target OMOP record = null
+mapping eligible = false
 
-normalizes Encounter with FHIRy,
+This test demonstrates explicit handling of a required unresolved FHIR reference without introducing a new analytical cohort.
 
-applies only the pyOMOP Encounter → visit_occurrence mapping to copies of the existing OMOP databases,
+Regression and lineage-integrity testing
 
-verifies 25,000 visit rows, 25,000 unique visit IDs, and zero invalid person links for each variant, and
+The frozen TFL implementation is accompanied by executable regression tests.
 
-appends the corrected Encounter events to the TFL sidecar audit.
+The harness verifies:
 
-This repair is isolated to the missing Encounter domain; the other previously completed OMOP transformations are reused.
+exact reproduction of controlled warning counts;
 
-Reproducibility Notebooks
+absence of unrelated warning contamination;
 
-The repository contains the development and correction sequence for the TFL workflow.
+unique transformation_id;
+
+complete source keys;
+
+target links for non-loss mapping events;
+
+W_TRACEABILITY_LOSS on each TRACEABILITY_LOSS event; and
+
+one-to-one mapped target-to-source consistency.
+
+These tests distinguish the TFL from an after-the-fact reporting table.
+
+Supporting analytical validation
+
+The following analyses are retained as secondary validation:
+
+row-count reconciliation;
+
+patient-level Jaccard similarity;
+
+Jensen–Shannon divergence;
+
+Shannon entropy;
+
+temporal-integrity checks;
+
+drug-exposure prevalence;
+
+bootstrap/null divergence;
+
+SQLite query-runtime profiling;
+
+database-size comparison; and
+
+public/deidentified FHIR portability profiling.
+
+These analyses assess consequences of controlled transformation conditions.
+
+They are not the primary methodological contribution.
+
+Temporal and structural checks
+
+The final workflow identified:
+
+0 missing start dates
+0 start-after-end violations
+
+across:
+
+condition_occurrence
+
+drug_exposure
+
+visit_occurrence
+
+observation
+
+measurement
+
+The number of persons with at least one valid clinical event remained:
+
+769
+
+across variants.
+
+For V4:
+
+mean timeline span change = +35.19 days
+median timeline span change = +86 days
+
+without introducing temporal-integrity violations.
+
+MIMIC-IV Demo on FHIR portability layer
+
+The public, deidentified MIMIC-IV Clinical Database Demo on FHIR v2.1.0 was used as a supplemental portability/shared-input test.
+
+The workflow processed:
+
+100 patients
+858,025 FHIR resources
+16 compressed NDJSON files
+
+Internal FHIR references:
+
+1,860,205 total
+112,676 unresolved
+6.06% unresolved
+
+Shared-input local tabularization produced:
+
+compact FHIRy-style: 150 columns
+FHIRpack Frame:      171 columns
+generic pandas:      195 columns
+
+Relative to generic normalization:
+
+FHIRy-style used 23.1% fewer columns
+
+Relative to FHIRpack:
+
+FHIRy-style used 12.3% fewer columns
+
+Local runtime:
+
+FHIRpack:       2.49 s
+FHIRy-style:   14.36 s
+generic pandas:17.19 s
+
+This comparison is limited to local representation behavior.
+
+It is not presented as an institutional ETL benchmark or full real-world TFL validation.
+
+Reproducibility notebooks
 
 Main execution
 
 FHIRy_pyOMOP_TFL_Execution_v8.ipynb
 
-Builds the main V0–V5 normalized sources, fresh OMOP databases, source/target linkage, and initial TFL audit outputs.
+Builds the main V0–V5 normalized sources, OMOP databases, source/target linkage, and initial TFL audit.
 
 Warning-rule correction
 
 FHIRy_pyOMOP_TFL_PostPhaseE_WarningFix_v9.ipynb
 
-Diagnoses and corrects V2/V3 warning logic without rerunning the completed full transformations.
+Corrects early V2/V3 warning-rule implementation without rerunning the completed full transformations.
 
-Encounter and audit repair
+Encounter restoration and traceability audit
 
 FHIRy_pyOMOP_TFL_EncounterAuditRepair_v10.ipynb
 
-Restores the omitted Encounter domain, verifies the V2 duplicate-identifier perturbation, rebuilds visit_occurrence, corrects the TFL audit, and validates the expected V1–V5 warning responses.
+Restores the Encounter domain, verifies V2 duplicate-source identity behavior, rebuilds visit_occurrence, and corrects Encounter-related TFL auditing.
 
-Final metric correction
+Source mapping denominator correction
 
 FHIRy_pyOMOP_TFL_SourceMappingMetricFix_v11.ipynb
 
-Corrects the source-mapping-coverage denominator from audit-event rows to unique source resources while preserving the other three primary metrics.
+Changes source mapping coverage from an audit-event denominator to the correct unique source-resource denominator.
 
-Earlier development notebook
+The other three primary metrics were unchanged at this stage.
 
-FHIRy_pyOMOP_TFL_Colab_Clean_v5.ipynb
+Submission hardening and frozen V0
 
-Retained for provenance of the earlier workflow. The finalized TFL results should be taken from the v10/v11 sequence rather than this earlier notebook.
+FHIRy_pyOMOP_TFL_SubmissionHardening_v12_P0_1_P0_2.ipynb
 
-Repository Structure
+Freezes:
+
+one complete authoritative V0 source package;
+
+deterministic V1–V5 source packages;
+
+TFL schema v1.0.0;
+
+information-fate vocabulary;
+
+warning vocabulary; and
+
+source-package SHA256 manifests.
+
+Regression and lineage harness
+
+FHIRy_pyOMOP_TFL_RegressionLineageHarness_v13.ipynb
+
+Implements:
+
+warning regression tests;
+
+warning contamination tests;
+
+transformation-ID uniqueness checks;
+
+source-key checks;
+
+target-link integrity; and
+
+target-to-source consistency tests.
+
+Medication and unresolved-reference hardening
+
+FHIRy_pyOMOP_TFL_MedicationReferenceHardening_v14_FIXED.ipynb
+
+Implements:
+
+hardened deterministic medication attribution;
+
+the final V4 = 1,003 medication-warning response; and
+
+REF_MICRO_01 unresolved-reference testing.
+
+Final submission freeze
+
+FHIRy_pyOMOP_TFL_SubmissionFreezeRunner_v15.ipynb
+
+This is the authoritative final integration notebook.
+
+It:
+
+reproduces the locked metric definitions;
+
+integrates the hardened medication warning;
+
+verifies that lineage coverage, source mapping coverage, and transformation-loss rate remain invariant;
+
+recomputes the final ambiguity/warning rates;
+
+exports manuscript-ready tables;
+
+freezes figures and manifests;
+
+records environment metadata and SHA256 hashes; and
+
+creates the final reproducibility archive.
+
+Development provenance
+
+Earlier notebooks and intermediate metric outputs are intentionally retained.
+
+They document the development sequence and corrections.
+
+In particular, earlier v10/v11 ambiguity/warning values reflect the broader medication-warning implementation used before v14 hardening.
+
+Those values are historical intermediate results.
+
+For manuscript/reviewer use, use the v15 frozen results shown in this README and in the tfl-submission-freeze-v15 release.
+
+Repository structure
 
 ohdsi-fhir-omop-showcase-demo/
 ├── README.md
@@ -639,41 +811,18 @@ ohdsi-fhir-omop-showcase-demo/
 ├── figures/
 ├── outputs/
 ├── results/
-│   └── phase4_analytical_stability/
 ├── results_reviewer_strengthening/
-│   └── fhir_omop_analytical_stability/
-├── FHIRy_pyOMOP_TFL_Colab_Clean_v5.ipynb
+│
 ├── FHIRy_pyOMOP_TFL_Execution_v8.ipynb
 ├── FHIRy_pyOMOP_TFL_PostPhaseE_WarningFix_v9.ipynb
 ├── FHIRy_pyOMOP_TFL_EncounterAuditRepair_v10.ipynb
-└── FHIRy_pyOMOP_TFL_SourceMappingMetricFix_v11.ipynb
+├── FHIRy_pyOMOP_TFL_SourceMappingMetricFix_v11.ipynb
+├── FHIRy_pyOMOP_TFL_SubmissionHardening_v12_P0_1_P0_2.ipynb
+├── FHIRy_pyOMOP_TFL_RegressionLineageHarness_v13.ipynb
+├── FHIRy_pyOMOP_TFL_MedicationReferenceHardening_v14_FIXED.ipynb
+└── FHIRy_pyOMOP_TFL_SubmissionFreezeRunner_v15.ipynb
 
-The older results/phase4_analytical_stability/ and reviewer-strengthening outputs are retained as supporting/legacy analytical artifacts. The current methodological contribution is represented by the TFL notebooks and finalized v10/v11 outputs.
-
-OHDSI Showcase Reproducibility Materials
-
-The original OHDSI software-demo scripts and outputs are intentionally retained alongside the newer TFL notebooks.
-
-Use:
-
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-./run_showcase_demo.sh
-
-to reproduce the lightweight showcase workflow from the repository root.
-
-The OHDSI materials demonstrate the foundational FHIR→OMOP software path. The v8–v11 notebooks represent the later transformation-fidelity research extension.
-
-Athena Vocabulary Assets
-
-Large OHDSI Athena vocabulary CSV files are not committed to this repository.
-
-The original showcase workflow used local vocabulary assets for mapping and concept-level summaries. Vocabulary files may have licensing and redistribution constraints and should be obtained from the appropriate OHDSI/Athena source.
-
-The TFL contribution itself does not require modifying the OMOP vocabulary schema.
-
-Running the Original Showcase Demo
+Running the original OHDSI showcase
 
 From the repository root:
 
@@ -682,72 +831,110 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ./run_showcase_demo.sh
 
-The v8–v11 TFL notebooks are designed for Google Colab and use persisted intermediate artifacts to avoid unnecessarily repeating completed transformations.
+The v8–v15 TFL notebooks are designed for Google Colab and use persisted intermediate artifacts to avoid unnecessary repetition of completed transformations.
 
-Data and File Exclusions
+Athena vocabulary assets
 
-The repository intentionally excludes large or restricted assets such as:
+Large OHDSI Athena vocabulary CSV files are not committed to this repository.
 
-raw FHIR NDJSON perturbation datasets
+The original showcase used local vocabulary assets including:
 
-large OMOP SQLite databases
+Vocabulary table
 
-Athena vocabulary CSV files
+Rows loaded
 
-raw MIMIC-IV Demo on FHIR files
+vocabulary
 
-temporary Colab/runtime files
+44
 
-Python virtual environments
+concept
 
-caches and logs
+4,066,375
 
-Where possible, reproducible code, aggregate outputs, diagnostics, and public-safe summaries are retained.
+concept_relationship
 
-Scope and Limitations
+34,078,766
 
-This repository demonstrates a lightweight, auditable research transformation workflow.
+concept_ancestor
+
+2,163,000
+
+concept_synonym
+
+2,346,129
+
+drug_strength
+
+3,020,774
+
+Vocabulary files should be obtained from the appropriate OHDSI/Athena source under their applicable terms.
+
+Scope
+
+This repository demonstrates a lightweight research transformation method.
 
 It is not presented as:
 
-a replacement for production-grade institutional ETL systems,
+a replacement for production institutional ETL;
 
-a complete implementation of all FHIR resources,
+a complete implementation of all FHIR resources;
 
-a terminology-learning or ontology-reasoning system,
+a terminology-learning system;
 
-a probabilistic or LLM-based mapper,
+a probabilistic mapper;
 
-a universal semantic-fidelity score,
+an LLM mapping system;
 
-a modification of the OMOP CDM schema, or
+a universal semantic-fidelity score;
+
+a modification of the OMOP CDM schema; or
 
 a full institutional data-quality platform.
 
-The controlled V0–V5 experiments are designed to test specific transformation-fidelity behaviors under reproducible perturbations.
+Limitations
 
-Research Status
+The primary method-validation data are synthetic.
 
-This repository contains the software base for the 2026 OHDSI Global Collaborator Showcase FHIR-to-OMOP software-demonstration work and the subsequent Transformation Fidelity Layer research extension.
+Controlled perturbations provide known failure conditions but do not reproduce all institutional extensions, terminology versions, local governance rules, or documentation practices.
 
-The current methods manuscript focuses on auditable FHIR-to-OMOP transformation fidelity while retaining the OHDSI demo, Athena mapping summaries, analytical scripts, and historical outputs as part of the reproducible project record.
+The frozen V0 source package was bootstrapped once from prespecified unaffected variant domains because the original clean source package had not been retained as one archive. Each reconstructed V0 domain was accepted only after unaffected controls agreed in row count and ordered content digest. Subsequent submission runs use the frozen V0 package and do not reconstruct it again.
 
-The manuscript framing is technique-first:
+W_CONFLICTING_CODING detects coding representations outside the configured V0 baseline set. It does not adjudicate ontology-level semantic contradiction.
+
+W_MEDICATION_ATTRIBUTION detects failure of the configured deterministic transformation-attribution rule. It does not determine clinical medication correctness.
+
+REF_MICRO_01 tests one unresolved required-reference condition and does not represent all possible FHIR referential-integrity failures.
+
+Research status
+
+This repository contains:
+
+the software foundation used for the 2026 OHDSI Global Collaborator Showcase FHIR-to-OMOP demonstration; and
+
+the subsequent Transformation Fidelity Layer methods work.
+
+The current manuscript framing is:
 
 Transformation method first; controlled validation second.
 
+The final reproducibility point is:
+
+tfl-submission-freeze-v15
+
 Citation
 
-A formal citation will be added after the transformation-fidelity manuscript is finalized and archived with a stable repository release/version tag.
+A formal manuscript citation will be added after publication.
 
-For software reuse before publication, please cite this repository and the underlying FHIRy, pyOMOP, HL7 FHIR, and OHDSI/OMOP resources as appropriate.
+Until then, please cite the repository/release and the underlying standards and software as appropriate.
 
 Maintainer
 
 Sanghati Basu
 
-Repository: SANGHATI23/ohdsi-fhir-omop-showcase-demo
+GitHub:
+
+SANGHATI23/ohdsi-fhir-omop-showcase-demo
 
 License
 
-Use and redistribution are subject to the repository license and the licenses/terms of the upstream tools, standards, vocabularies, and datasets used by the workflow.
+Use and redistribution are subject to the repository license and the licenses or terms of the upstream tools, standards, vocabularies, and datasets used by the workflow.
